@@ -1,0 +1,70 @@
+	/*	
+	 * Tree:
+	 *  	  A
+		B	        C
+	  D    E     F     G
+	  	H       I  
+	*/
+
+
+	// Level order Traversal: ABCDEFGHI	
+	// Starts at the roots, it goes over as level order and always starts at the left
+	/* public void levelOrder (BinaryTreeNode<T> root) {
+		if (root == null) return;
+		LinkedQueue<T> Q = new LinkedQueue<T>();
+		Q.enqueue(root);
+		while (!Q.isEmpty()) {
+			BinaryTreeNode<T> v = Q.dequeue();
+			visit(v);   											*** Place of visit, at the front of getLeft and getRight
+			if (v.leftChild() != null) Q.enqueue(v.leftChild());  	*** Not a recursion, just go through the Tree
+			if (v.rightChild() != null) Q.enqueue(v.rightChild());
+		}
+	   }
+	 */
+	
+	 // Pre-order Traversal: A|BDHE| |CFIG|
+	 // Starts at the roots, It always goes over the left first, if no left then to the right
+	 /* public void preorder (BinaryTreeNode<T> r) {
+			if (r != null) {
+			visit(r); 												*** Same as Level order, visit() is at front of getters
+			preorder (r.getLeftChild());							*** Recursive methods, it would keep getting the left node until it is null
+			preorder (r.getRightChild());                           *** then it would get the right, then null again, go back the up one and keep get the left
+			}                                                       *** and REPEAT
+		}
+	  */
+	
+	 // In-order Traversal: |DHBE| A |IFCG|
+	 // Starts at leftmost, then go to its children, then go back to parent
+	 /*	
+		public void inorder (BinaryTreeNode<T> r) {
+			if (r != null) {
+			inorder (r.getLeftChild());
+			visit(r);												*** visit() is at the middle of two getters, Recursive methods
+			inorder (r.getRightChild());							
+		 }
+		}
+	  */
+	 // Post-order Traversal: |HDEB| |IFGC| A
+	 /* Starts at the leftmost leaf, then go to the right
+	  * public void postorder (BinaryTreeNode<T> r) {
+			if (r != null) {
+			postorder (r.getLeftChild());
+			postorder (r.getRightChild());
+			visit(r);												***  visit() is at the end of this method, Recursive methods
+			}
+		}
+	  */
+	
+	 /* 
+	 * ↑↑↑↑↑↑
+	 * DIFFERENCE BETWEEN:
+	 * place of visit()
+	 * format of output (how to separate subtrees)
+	 * how to get root at the front
+	 * order of output(clearly)
+	 */
+	
+	// Binary Search Tree: 所有在右边的node都比左边的大，每个node右边的值都比其本身大，左边的值都比本身小
+	
+	// Min Heap (Level order traversal): the Binary Search Tree that is completed
+	
